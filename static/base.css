@@ -24,6 +24,17 @@ h1#logo {
 h4 {
 	color: red
 }
+
+#mainboard {
+	width: 500px;
+	height: 300px;
+	background: white;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
 #content {
 	-moz-border-radius-bottomright: 22px;
 	border-color: crimson;
@@ -67,7 +78,7 @@ a.eleven_fingers_link:hover {
 }
 
 span.klawisz_eleven_fingers {
-	font-size: 300%;
+	font-size: 200%;
 	background: white;
 	border-width: 1px;
 	border-color: red;
@@ -81,7 +92,7 @@ span.klawisz_eleven_fingers {
 }
 
 #textline {
-	font-size: 200%;
+	font-size: 150%;
 	color: black;
 	border-color: crimson;
 	border-style: solid;

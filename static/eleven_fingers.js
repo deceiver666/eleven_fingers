@@ -39,9 +39,16 @@ kapusta.keypressed = function (ev){
 		textline.firstChild.nodeValue = line+String.fromCharCode(keyval);
 
 		keyval = String.fromCharCode(keyval).toLowerCase().charCodeAt(0);
-		val = String.fromCharCode(keyval).toLowerCase().charCodeAt(0)
+		val = String.fromCharCode(keyval).toLowerCase().charCodeAt(0);
 
 		kapusta.create_fadeout(val);
+
+		if (typeof ev.preventDefault != "undefined") {
+			ev.preventDefault();
+		} else {
+			alert('prevent default undefined :{');
+		}
+
 	}
 }
 
@@ -53,6 +60,10 @@ kapusta.create_eleven_fingers = function () {
 		textline.appendChild(document.createTextNode(': '));
 		maindiv.appendChild(textline);
 		maindiv.appendChild(document.createElement('br'));
+
+		mainboard = document.createElement('div');
+		mainboard.id = 'mainboard'
+		maindiv.appendChild(mainboard);
 
 		document.onkeypress = kapusta.keypressed;
 		for(var i in kapusta.letters){

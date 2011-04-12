@@ -77,11 +77,17 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'kapusta.urls'
 
+def get_path_prefix():
+	"return directory in which the project resides"
+	import os.path
+	pref, filename = os.path.split(__file__)
+	return pref+'/'
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-	r'/home/jonasz/django/kapusta/html_templates'
+	get_path_prefix()+'html_templates'
 )
 
 INSTALLED_APPS = (
@@ -98,4 +104,4 @@ INSTALLED_APPS = (
 )
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = ['/home/jonasz/django/kapusta/static/']
+STATICFILES_DIRS = [get_path_prefix()+'static/']
