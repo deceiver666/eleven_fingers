@@ -1,0 +1,90 @@
+body { 
+	color: black;
+	text-align: justify;
+	background-image: url('/static/kapusta.jpg');
+}
+
+div#board {
+	-moz-border-radius: 22px;
+	margin-left: 20%;
+	margin-right: 20%;
+	background: GreenYellow;
+}
+
+h1#logo {
+	-moz-border-radius-topleft: 22px;
+	-moz-border-radius-topright: 22px;
+	background: black;
+	color: gold;
+	text-align: center;
+	padding: 20px;
+}
+
+
+h4 {
+	color: red
+}
+#content {
+	-moz-border-radius-bottomright: 22px;
+	border-color: crimson;
+	border-style: solid;
+	border-width: 2px;
+	padding: 20px;
+}
+#header {
+	text-align: center;
+	padding: 20px;
+}
+#footer {
+	text-align: right;
+	padding: 20px;
+}
+
+a:link, a:visited, a:active {
+	color: black;
+}
+
+a:hover {
+	color: gray;
+}
+
+a.eleven_fingers_link {
+	color: red;
+	font-weight: bold;
+	font-size: 130%;
+	font-family: sans-serif;
+	text-decoration: none;
+	font-variant: small-caps;
+}
+a.eleven_fingers_link:hover {
+	color: white;
+	background: red;
+	font-weight: bold;
+	font-size: 130%;
+	font-family: sans-serif;
+	text-decoration: blink;
+	font-variant: small-caps;
+}
+
+span.klawisz_eleven_fingers {
+	font-size: 300%;
+	background: white;
+	border-width: 1px;
+	border-color: red;
+	border-style: solid;
+	font-variant: small-caps;
+	cursor: none;
+}
+
+#eleven_fingers {
+	text-align: center;
+}
+
+#textline {
+	font-size: 200%;
+	color: black;
+	border-color: crimson;
+	border-style: solid;
+	border-width: 2px;
+	text-align: center;
+}

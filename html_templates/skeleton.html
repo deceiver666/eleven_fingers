@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Kapusta games!</title>
+		<link rel="stylesheet" type="text/css" href="/static/base.css" />
+		<script type="text/javascript" src="/static/eleven_fingers.js"></script>
+	</head>
+	<body onload='kapusta.process()'>
+		<div id="board">
+			<h1 id="logo"> Welcome to KAPUSTA GAMES!! </h1>
+			<div id="header">
+				{% if user.is_authenticated %}
+				Witaj, {{user.username}}
+				{% else %}
+				<a href="/login/">Logowanie</a>
+				{% endif %}
+				/ <a href="/">Strona główna</a>
+				{% if user.is_authenticated %}
+				/ <a href="/logout/">Wyloguj</a>
+				{% else %}
+				/ <a href="/register/">Rejestruj</a>
+				{% endif %}
+				/ <a class="eleven_fingers_link" href="/eleven_fingers/">Eleven Fingers</a>
+			</div>
+
+			<div id="content" >
+
+				{% block content %} {% endblock %}
+
+			</div>
+
+			<div id="footer">
+				{% if stats %}
+				Statystyki:<br />
+				<ul>
+					{% for stat in stats %}
+					<li> {{stat.stat_name}} - {{stat.value}}</li>
+					{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
