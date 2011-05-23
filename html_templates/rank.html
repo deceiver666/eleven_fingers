@@ -1,0 +1,11 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+
+
+{% for row in ranking %}
+  {{forloop.counter}}. {{row.username}} : {{row.best_score}} <br \>
+  	
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "skeleton.html" %}
+
+{% block content %}
+Grałeś {{numberOfGames}} razy. <br \>
+Najlepszy wynik: {{bestScore}}  <br \>
+Średni wynik: {{avgScore}}      <br \>
+Ostatnie wyniki: <br \>
+{% for game in lastGames %}
+{{forloop.counter}}. Wynik {{game.score}} uzyskany {{game.date}} <br \> 
+
+{% endfor %}
+
+{% endblock content %}
