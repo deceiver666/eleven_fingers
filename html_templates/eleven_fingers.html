@@ -4,5 +4,10 @@
 
 <div id="eleven_fingers">
 </div>
+<form method="post" id="endOfAGame" action="/game_over/" > 
+{% csrf_token %}  
+<input type="hidden" name="score" value=kapusta.score></form>
+
+
 
 {% endblock content %}

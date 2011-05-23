@@ -14,6 +14,9 @@ urlpatterns = patterns('',
 	(r'^register/$', 'kapusta.szkielet.views.register_view'),
 	(r'^error/$', 'kapusta.szkielet.views.error_view'),
 	(r'^eleven_fingers/$', 'kapusta.szkielet.views.eleven_fingers_view'),
+	(r'^mystats/$', 'kapusta.szkielet.views.mystats_view'),
+	(r'^rank/$', 'kapusta.szkielet.views.rank_view'),
+	(r'^game_over/$', 'kapusta.szkielet.views.game_over_view'),
     # Example:
     # (r'^kapusta/', include('kapusta.foo.urls')),
 

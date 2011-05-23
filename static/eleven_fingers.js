@@ -6,6 +6,7 @@ kapusta.timeouts = new Array();
 kapusta.color = new Array();
 kapusta.TEXTLENGTH=30;
 kapusta.letters = 'qwertyuiopasdfghjklzxcvbnm ';
+kapusta.score = 0;
 
 kapusta.fade = function(keyval) {
 	var id = "klawisz_"+String.fromCharCode(keyval);
@@ -19,7 +20,14 @@ kapusta.fade = function(keyval) {
 	}
 }
 
+
+
 kapusta.create_fadeout = function(keyval) {
+	if(String.fromCharCode(keyval)=='z'){
+		document.getElementById("endOfAGame").elements["score"].value = kapusta.score; 		
+		document.getElementById("endOfAGame").submit();
+	} 
+	kapusta.score++;	
 	clearTimeout(kapusta.timeouts[keyval]);
 	kapusta.color[keyval]=255;
 	kapusta.fade(keyval);
@@ -79,6 +87,9 @@ kapusta.create_eleven_fingers = function () {
 			maindiv.appendChild(span);
 			if(klawisz=='p' || klawisz=='l' || klawisz=='m') 
 				maindiv.appendChild(document.createElement('br'));
+
+				
+			
 		}
 	}
 }
