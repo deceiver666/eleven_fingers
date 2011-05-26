@@ -2,7 +2,6 @@
 
 {% block content %}
 
-<h4> {{message}} </h4>
 {% if user.is_authenticated %}
 Logged in as {{user.username}}. <br />
 <a href="/logout/">Logout?</a>

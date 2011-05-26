@@ -1,4 +1,5 @@
 # Create your views here.
+# -*- coding: utf-8 -*-
 from django.http import HttpRequest
 from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -55,16 +56,18 @@ def do_register_view(request):
 	password = request.POST['password']
 	confirm = request.POST['confirm']
 	email = request.POST['email']
-	nickname = request.POST['nickname']
 	#user = User(username=login, first_name=nickname, last_name='pazdzioch',
 			#email=email, password=password, is_staff=False, is_superuser=False)
 	#user.save()
+	if password!=confirm:
+		return render_to_response('register.html',{'message': u'Hasło i jego potwierdzenie się nie zgadzają. Spróbuj ponownie.'}, context_instance=RequestContext(request))
+
 	try:
 		user = User.objects.create_user(login, email, password)
 		user.save()
 	except IntegrityError:
-		return redirect('/error/', {'message': 'test'})
-	return redirect('/')
+		return redirect('/', {'message': 'test'})
+	return render_to_response('register.html',{'message': u'Rejestracja przebiegła pomyślnie. Możesz się teraz zalogować.'}, context_instance=RequestContext(request))
 
 def mystats_view(request):
 	myGames = Game.objects.filter( user = request.user);
