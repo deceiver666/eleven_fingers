@@ -5,13 +5,15 @@ from django.shortcuts import render_to_response, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.template import RequestContext
-from szkielet.models import SimpleStats, Game
+from eleven_fingers.models import SimpleStats, Game
 from django.db import IntegrityError
 from django.core.context_processors import csrf
 from django.db.models import Avg, Max, Min, Count
 import datetime
+import logging
 
 licznik=0
+logger=logging.getLogger(__name__)
 
 def main_view(request):
 	global licznik
@@ -52,6 +54,7 @@ def register_view(request):
 	return render_to_response('register.html', {'user': request.user}, context_instance=RequestContext(request))
 
 def do_register_view(request):
+	logger.debug('register, request = %s', str(request))
 	login = request.POST['login']
 	password = request.POST['password']
 	confirm = request.POST['confirm']

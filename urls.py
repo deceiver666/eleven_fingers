@@ -6,17 +6,17 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	(r'^$', 'kapusta.szkielet.views.main_view'),
-	(r'^login/$', 'kapusta.szkielet.views.login_view'),
-	(r'^logout/$', 'kapusta.szkielet.views.logout_view'),
-	(r'^do_login/$', 'kapusta.szkielet.views.do_login_view'),
-	(r'^do_register/$', 'kapusta.szkielet.views.do_register_view'),
-	(r'^register/$', 'kapusta.szkielet.views.register_view'),
-	(r'^error/$', 'kapusta.szkielet.views.error_view'),
-	(r'^eleven_fingers/$', 'kapusta.szkielet.views.eleven_fingers_view'),
-	(r'^mystats/$', 'kapusta.szkielet.views.mystats_view'),
-	(r'^rank/$', 'kapusta.szkielet.views.rank_view'),
-	(r'^game_over/$', 'kapusta.szkielet.views.game_over_view'),
+	(r'^$', 'kapusta.eleven_fingers.views.main_view'),
+	(r'^login/$', 'kapusta.eleven_fingers.views.login_view'),
+	(r'^logout/$', 'kapusta.eleven_fingers.views.logout_view'),
+	(r'^do_login/$', 'kapusta.eleven_fingers.views.do_login_view'),
+	(r'^do_register/$', 'kapusta.eleven_fingers.views.do_register_view'),
+	(r'^register/$', 'kapusta.eleven_fingers.views.register_view'),
+	(r'^error/$', 'kapusta.eleven_fingers.views.error_view'),
+	(r'^eleven_fingers/$', 'kapusta.eleven_fingers.views.eleven_fingers_view'),
+	(r'^mystats/$', 'kapusta.eleven_fingers.views.mystats_view'),
+	(r'^rank/$', 'kapusta.eleven_fingers.views.rank_view'),
+	(r'^game_over/$', 'kapusta.eleven_fingers.views.game_over_view'),
     # Example:
     # (r'^kapusta/', include('kapusta.foo.urls')),
 

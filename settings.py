@@ -1,6 +1,12 @@
 # Django settings for kapusta project.
 
 DEBUG = True
+
+if DEBUG:
+	LOGGING_LEVEL='DEBUG'
+else:
+	LOGGING_LEVEL='INFO'
+
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -100,8 +106,54 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
 	#'django.contrib.admindocs',
-	'szkielet'
+	'eleven_fingers'
 )
+
+LOGGING = {
+	'version': 1,	
+	'formatters':{
+		'precise': {
+			'format': '%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+		},
+		'red_precise': { # only for console, will generate some trash when used for logging in files
+			'format': '\033[31m%(asctime)s - %(name)s - %(levelname)s - %(message)s\033[0m',
+		},
+	},
+	'handlers':{
+		'rotating_kapusta': {
+			'class': 'logging.handlers.RotatingFileHandler',
+			'filename': 'kapusta.log',
+			'formatter': 'precise',
+			'maxBytes': 100*1024,
+			'backupCount': 2,
+		},
+		'rotating_django': {
+			'class': 'logging.handlers.RotatingFileHandler',
+			'filename': 'django.log',
+			'formatter': 'precise',
+			'maxBytes': 100*1024,
+			'backupCount': 2,
+		},
+		'red_console': {
+			'class': 'logging.StreamHandler',
+			'formatter': 'red_precise',
+		}
+	},
+	'filters': {},
+
+	'loggers': {
+		'django': {
+			'handlers': ['rotating_django'],
+			'level': 'INFO',
+			'propagate': True,
+		},
+		'kapusta': {
+			'propagate': False,
+			'level': LOGGING_LEVEL,
+			'handlers': ['rotating_kapusta', 'red_console'],
+		}
+	},
+}
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [get_path_prefix()+'static/']
