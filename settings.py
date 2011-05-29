@@ -122,14 +122,14 @@ LOGGING = {
 	'handlers':{
 		'rotating_kapusta': {
 			'class': 'logging.handlers.RotatingFileHandler',
-			'filename': 'kapusta.log',
+			'filename': get_path_prefix()+'kapusta.log',
 			'formatter': 'precise',
 			'maxBytes': 100*1024,
 			'backupCount': 2,
 		},
 		'rotating_django': {
 			'class': 'logging.handlers.RotatingFileHandler',
-			'filename': 'django.log',
+			'filename': get_path_prefix()+'django.log',
 			'formatter': 'precise',
 			'maxBytes': 100*1024,
 			'backupCount': 2,
